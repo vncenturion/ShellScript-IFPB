@@ -16,21 +16,21 @@
 
 8. Escreva um script que soma 2 números passados como argumentos de linha de comando. Por exemplo:
   
-  ```shell
-  $ ./a.sh 20 40
-  > 60
-  ```
+    ```shell
+    $ ./a.sh 20 40
+    > 60
+    ```
 
 9. Escreva um script que receba dois argumentos passados pela linha de comando, digamos a e b, e imprima o valor da expressão (a+1) vezes (b+2). Por exemplo:
-  
-  ```shell
-  $ ./x.sh 0 2
-  > 4
-  ```
 
-10 - Melhore o script da questão anterior para que aceite números fracionários, isto é, números com casas decimais. Por exemplo:
+    ```shell
+    $ ./x.sh 0 2
+    > 4
+    ```
 
-  ```shell
-  $ ./x.sh 0.0 2.4
-  > 4.4
-  ```
+10. Melhore o script da questão anterior para que aceite números fracionários, isto é, números com casas decimais. Por exemplo:
+
+    ```shell
+    $ ./x.sh 0.0 2.4
+    > 4.4
+    ```
