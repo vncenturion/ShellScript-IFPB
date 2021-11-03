@@ -1,4 +1,4 @@
-# ShellScript-IFPB
+# ShellScript-IFPB:  ATIVIDADE 01
 
 1. Escreva um script que imprima uma frase motivacional fofinha =-).
 
