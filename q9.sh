@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+echo "$(( ( $1 + 1 ) * ( $2 + 2) ))"
+
 <<questao
 9 - Escreva um script que receba dois argumentos passados pela linha de comando, digamos a e b, e imprima o valor da expressão (a+1) vezes (b+2). Por exemplo:
 
