@@ -34,3 +34,19 @@
     $ ./x.sh 0.0 2.4
     > 4.4
     ```
+11. Escreva um script que recebe 3 nomes de arquivo como parâmetros de linha de comando e imprime a soma dos números de linhas dos 3 arquivos. Utilize a substituição de shell, substituição aritmética e o comando wc -l para contar o número de linhas de cada arquivo. Por exemplo:
+  
+    ```shell
+    $ ./z.sh a.txt b.txt c.txt
+    > 14
+    ```
+    
+12. Escreva um script que exiba pelo menos 8 variáveis criadas automaticamente pelo bash, assim como o seu conteúdo e explique o significado desta variável. Exemplo:
+
+    ```shell
+    ./vars.sh
+
+    $HOME (valor atual: /home/gabigol) variável que guarda o valor do diretório inicial do usuário atual.
+
+    $1 (valor atual: 12) Variável que guarda o valor do primeiro argumento passado pela linha de comando.
+    ```
