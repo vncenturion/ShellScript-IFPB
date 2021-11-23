@@ -1,5 +1,19 @@
 #!/bin/bash
+  
+controle=1
 
+for arquivo in $* ; do
+        if [ -e ${arquivo} ]; then
+                echo "${arquivo} SIM"
+        else
+                echo "${arquivo} NAO"
+                controle=0
+        fi
+done
+
+if [ ${controle} -eq 1 ]; then
+        echo -e "\nEu prefiro morrer do que perder a vida!!!\n(DO 8, Chaves)"
+fi
 
 
 << questao
