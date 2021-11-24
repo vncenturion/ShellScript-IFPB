@@ -1,86 +1,100 @@
 #!/bin/bash
+  
+aritmetica='
+\nARITMETICA
+\nVerificação de condições relativas a inteiros:
 
-logic="
-Logica:
-    test ( expressão ) -> retorna True se a expressão é verdadeira
-    test ! expressão -> retorna True se a expressão é falsa
-    test expressao1 -a expressão 2 -> retorna True se ambas as expressões forem verdadeiras
-    test expressao1 -o expressão 2 -> retorna True se pelo menos uma das expressões for verdadeira
-"
+\n-gt (greater than)\t$test num1 -gt num2\tcorresponde a maior que
+\n-ge (greater or equal)\t$test num1 -ge num2\tcorresponde a maior ou igual que
+\n-lt (less than)\t\t$test num1 -lt num2\tcorresponde a menor que
+\n-le (less or equal)\t$test num1 -le num2\tcorresponde a menor ou igual que
+\n-eq (equal)\t\t$test num1 -eq num2\tcorresponde a igual que
+\n-ne (not equal)\t\t$test num1 -ne num2\tcorresponde a diferente de
 
-arithmetic="
-Aritmetica
-    sempre seguindo a lógica de inteiro1 e inteiro2
-    test inteiro1 -eq inteiro2 -> retorna True se os inteiros são iguais
-    test inteiro1 -ne inteiro2 -> retorna True se os inteiros são diferentes
-    test inteiro1 -gt inteiro2 -> retorna True se inteiro1 é maior que inteiro2
-    test inteiro1 -ge inteiro2 -> retorna True se inteiro1 é maior ou igual a inteiro2
-    test inteiro1 -lt inteiro2 -> retorna True se inteiro1 é menor que inteiro2
-    test inteiro1 -le inteiro2 -> retorna True se inteiro1 é menor ou igual a inteiro2
-"   
+\nTeste de condições aritméticas com (()):
 
-strings="
-Strings: 
-    test -n str -> retorna True se a string não é vazia
-    test -z str -> retorna True se a string é vazio
-    test str1 = str2 -> retorna True se as strings são iguais
-    test str1 != str2 -> retorna True se as strings são diferentes
-"
+\nPermite o teste de condições com números inteiros, do tipo:
+\n$ (( num1 > num2))
+\n$ (( num1 >= num2))
+\n$ (( num1 < num2))
+\n$ (( num1 <= num2))
+\n$ (( num1 == num2))
+\n$ (( num1 != num2))
+'
 
+logica='
+\nLOGICA
+\nVerificação de condições logicas para expressões:
 
-files="
-Arquivos : 
-    test -b file -> retorna True se o arquivo é um bloco de dados especial
-    test -c file -> retorna True se o arquivo é um caractere especial
-    test -d file -> retorna True se o arquivo é um diretório
-    test -e file -> retorna True se o arquivo existe
-    test -f file -> retorna True se o arquivo é um arquivo normal
-    test -L file -> retorna True se o arquivo é um link simbólico
-    test -k file -> retorna True se o arquivo é um sticky bit
-    test -h file -> retorna True se o arquivo é um link simbólico
-    test -O file -> retorna True se o dono do arquivo é o usuário atual
-    test -r file -> retorna True se o arquivo pode ser lido
-    test -w file -> retorna True se o arquivo pode ser escrito
-    test -x file -> retorna True se o arquivo pode ser executado 
-    test -s file -> retorna True se o tamanho do arquivo é maior que zero
-    test -N file -> retorna True se o arquivo foi modificado desde a última leitura
-"
+\n! (logical NOT)\t\t\t$ !EXPRESSÃO\t\tI\tnverte o resultado da expressão passada
+\n&& ou -a (logical AND)\t\t$t EXPRESSÃO1 && EXPRESSÃO2\tas duas expressões são verdade
+\n|| ou -o (logical OR)\t\t$ EXPRESSÃO1 || EXPRESSÃO2\tpelo menos 1 das expressões é verdade
+'
 
-variables="
-Variaveis:
-    test -v var -> retorna True se a variável existe
-    test -R var -> retorna True se a variável existe e é um nome de refência
-"
+strings='
+\nSTRINGS
+\nVerificação de condições relativas a strings:
 
+\n-n (length is nonzero)\t$ -n string\t\tString não nula
+\n-z (length is zero)\t$ -z string\t\tString nula
+\n= (equal)\t\t$ string1 = string2\tAs duas strings são iguais
+\n!= (not equal)\t\t$ string1 != string2\tAs strings são distintas
+'
 
+arquivos='
+\nARQUIVOS
+\nVerificação de condiçòes relativas a arquivos:
 
-while [ -n "${1}" ];do
-    case "${1}" in
-        "logica")
-            echo "${logic}"
-            ;;
-        "aritmetica")
-            echo "${arithmetic}"
-            ;;
-        "strings")
-            echo "${strings}"
-            ;;
-        "arquivos")
-            echo "${files}"
-            ;;
-        "variaveis")
-            echo "${variables}"
-            ;;
-        *)
-            echo "Opção ${1} inválida"
-            ;;
+\n-ef\t$ arq1 -ef arq2\t\tAmbos arquivos tem o mesmo número de inode
+\n-nt\t$ arq1 -nf arq2\t\tArq1 é mais recente que arq2
+\n-ot\t$ arq1 -of arq2\t\tArq1 é mais antigo que arq2
+\n-b\t$ -b arq\t\tArq existe e é um bloco especial
+\n-c\t$ -c arq\t\tArq existe e é um caractere especial
+\n-e\t$ -d arq\t\tArq existe e é um diretório
+\n-f\t$ -e arq\t\tArq existe
+\n-h\t$ -f arq\t\tArq existe e é um arquivo normal/comum
+\n-h\t$ -h arq\t\tArq existe e é um link simbólico
+\n-L\t$ -L arq\t\tArq existe e é um link simbólico
+\n-r\t$ -r arq\t\tArq existe e a permissão de leitura foi concedida
+\n-s\t$ -s arq\t\tArq existe e possui tamanho maior que zero
+\n-w\t$ -w arq\t\tArq existe e a permissão de escrita foi concedida
+\n-x\t$ -x arq\t\tArq existe e a permissão de execuçao foi concedida
+'
+
+variaveis='
+\nVARIÁVEIS
+\nVerificação de condições relativas a variáveis:
+\n-v\t\t$ test -v VAR\t\tRetorna verdadeiro se a variável VAR existe
+\n-R\t\t$ test -R VAR\t\tRetorna verdadeiro se a variável VAR existe é um nome de referência
+'
+
+for parametro in $*; do
+    case "${parametro}" in
+    "aritmetica") 
+        echo -e $aritmetica
+        ;;
+    "logica") 
+        echo -e $logica
+        ;;
+    "strings") 
+        echo -e $strings
+        ;;
+    "arquivos")
+        echo -e $arquivos
+        ;;
+    "variaveis" | "variáveis")
+        echo -e $variaveis
+        ;;
     esac
-    shift
 done
 
-
 << questao
-11 - Escreva um script chamado 11.sh. Este deve receber um ou mais parâmetros de linha de comando. Se um destes parâmetros for “logica”, o script deve imprimir uma ajuda sobre os parâmetros lógicos do comando test. Se um destes parâmetros for “aritmetica”, o script deve imprimir uma ajuda sobre os parâmetros aritméticos do comando test. Se um destes parâmetros for “strings”, o script deve imprimir uma ajuda sobre os parâmetros para strings do comando test. Se um destes parâmetros for “variáveis”, o script deve imprimir uma ajuda sobre os parâmetros para variáveis do comando test. Se um destes parâmetros for “arquivos”, o script deve imprimir uma ajuda sobre os parâmetros sobre arquivos do comando test.
+11 - Escreva um script chamado 11.sh. Este deve receber um ou mais parâmetros de linha de comando. 
+Se um destes parâmetros for “logica”, o script deve imprimir uma ajuda sobre os parâmetros lógicos do comando test. 
+Se um destes parâmetros for “aritmetica”, o script deve imprimir uma ajuda sobre os parâmetros aritméticos do comando test. 
+Se um destes parâmetros for “strings”, o script deve imprimir uma ajuda sobre os parâmetros para strings do comando test.
+Se um destes parâmetros for “variáveis”, o script deve imprimir uma ajuda sobre os parâmetros para variáveis do comando test.
+Se um destes parâmetros for “arquivos”, o script deve imprimir uma ajuda sobre os parâmetros sobre arquivos do comando test.
 
 $ ./11.sh arquivos
 
