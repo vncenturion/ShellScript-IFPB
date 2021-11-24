@@ -1,5 +1,33 @@
 #!/bin/bash
 
+ListaArquivos=$(ls)
+
+echo -e "\nDIRS-------------------------------"
+for arquivo in ${ListaArquivos}; do
+        if [ -d "${arquivo}" ]; then
+                echo "${arquivo}"
+        fi
+done
+echo -e "\nFILES-------------------------------"
+for arquivo in ${ListaArquivos}; do
+        if [[ -f "${arquivo}" && ! -h "${arquivo}" ]]; then
+                echo "${arquivo}"
+        fi
+done
+echo -e "\nLINKS-------------------------------"
+for arquivo in ${ListaArquivos}; do
+        if [ -h "${arquivo}" ]; then
+                echo "${arquivo}"
+        fi
+done
+
+
+#echo -e "DIRS-------------------------------"
+#find . -type l
+#echo -e "\nFILES-------------------------------"
+#find . -type f
+#echo -e "\nLINKS-------------------------------"
+#find . -type d
 
 
 << questao

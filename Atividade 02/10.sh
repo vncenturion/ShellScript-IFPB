@@ -1,17 +1,17 @@
 #!/bin/bash
   
-controle=1
+controle=1 #flag de controle de exibição de mensagem final
 
 for arquivo in $* ; do
-        if [ -e ${arquivo} ]; then
-                echo "${arquivo} SIM"
+        if [ -e ${arquivo} ]; then #verifica existencia do arquivo
+                echo "${arquivo} SIM" #exibe confirmação afirmativa
         else
-                echo "${arquivo} NAO"
-                controle=0
+                echo "${arquivo} NAO" #exibe confirmaçao negativa
+                controle=0 #desativa a flag
         fi
 done
 
-if [ ${controle} -eq 1 ]; then
+if [ ${controle} -eq 1 ]; then #verifica flag para exibiçao da msg final
         echo -e "\nEu prefiro morrer do que perder a vida!!!\n(DO 8, Chaves)"
 fi
 
