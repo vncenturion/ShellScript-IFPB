@@ -20,7 +20,7 @@ for ((i=1; i<=4; i++)) do
         rm binario
 done
 
-# nem sabia q no BC tinha um comando específico so pra isso
+# nem sabia q no BC tinha um comando específico so para converter numeros conforme a base selecionada
 
 << questao
 
