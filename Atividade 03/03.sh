@@ -6,7 +6,6 @@ else
     read -p "Digite um ip qualquer (formato 0.0.0.0): " endIP
 fi
 
-
 for ((i=1; i<=4; i++)) do
         decimal=$(cut -d '.' -f $i <<< $endIP)
         quociente=$decimal
