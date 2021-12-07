@@ -32,7 +32,6 @@ Octeto #2: 8 em binário 00001000
 Octeto #3: 4 em binário 00000100
 Octeto #4: 4 em binário 00000100
 
-
 questao
 
 echo "fim do script"
