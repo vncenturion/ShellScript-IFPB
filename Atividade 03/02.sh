@@ -6,8 +6,8 @@ texto=$1
 cat $texto | tr -s '\n'
 
 #altera arquivo original (altera o texto original)
-tr -s '\n' < $texto > novo
-mv novo $texto
+tr -s '\n' < $texto > aux
+mv aux $texto
 
 
 << questao

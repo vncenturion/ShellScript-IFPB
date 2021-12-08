@@ -1,22 +1,31 @@
 #!/bin/bash
 
-if [ $# -ne 0 ]; then
+if [ $# -ne -0 ]; then
     endIP=$1
 else
-    read -p "Digite um ip qualquer (formato 0.0.0.0): " endIP
+    read -p "Digite um IP qualquer (formato 0.0.0.0): " endIP
 fi
 
 for ((i=1; i<=4; i++)) do
-        decimal=$(cut -d '.' -f $i <<< $endIP)
-        quociente=$decimal
-        while [ ${quociente} -ge 1 ]; do
-                resto=$(($quociente%2))
-                echo ${resto} >> binario
-                quociente=$(($quociente/2))
-        done
-        nBinario=$(tac binario | tr -d '\n')
-        echo "Octeto #$i: $decimal em binário $nBinario"
-        rm binario
+    count=0
+    decimal=$(cut -d '.' -f $i <<< $endIP)
+    # echo $decimal #confere parcial
+    quociente=$decimal
+    while [ ${quociente} -ge 1 ]; do
+        # echo $quociente #confere parcial
+        resto=$(($quociente%2))
+        # echo $resto #confere parcial
+        echo ${resto} >> binario
+        quociente=$(($quociente/2))
+        count=$((${count}+1))
+    done
+    while [ $count -ne 8 ]; do
+        echo "0" >> binario
+        count=$((${count}+1))
+    done
+    nBinario=$(tac binario | tr -d '\n')
+    echo -e "Octeto #$i: $decimal\tem binário $nBinario"
+    rm binario
 done
 
 # nem sabia q no BC tinha um comando específico so para converter numeros conforme a base selecionada

@@ -1,8 +1,9 @@
 #!/bin/bash
-
+  
 texto=$1
 
-cat texto | tr '0-9' 'x'
+cat ${texto} | tr '0-9' 'x' > aux
+mv aux $texto
 
 << questao
 

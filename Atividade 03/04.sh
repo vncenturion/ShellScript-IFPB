@@ -1,5 +1,5 @@
 #!/bin/bash
-  
+
 if [ "$1" != "" ]; then
     opcao=$1
 else
@@ -10,28 +10,52 @@ fi
 if [ "$2" != "" ]; then
     diretorio=$2
 else
-    diretorio="."
+    diretorio=$(pwd)
 fi
 
-echo -e "\nDesistir é para os fracos. Por isso que eu nem tento.\n"
+echo -e "\n\t"'"Desistir é para os fracos. Por isso que eu nem tento."'
 
 case "${opcao}" in
-        "a"|"-a")
-                echo -e "\nDIRETÓRIOS EM ${diretorio}"
-                cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep ^d)
-        ;;
-        "b" | "-b")
-                echo -e "\nARQUIVOS EXECUTAVEIS EM ${diretorio}"
-                ls -l "${diretorio}" | grep "^-" | awk '{print $9}'
-                cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep -e ^-[-r][-w]x -e ^-.*[-w][-r][-w]x)
-        ;;
-        "c" | "-c")
-                echo -e "\nLINKS SIMBÓLICOS EM ${diretorio}"
-                cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep ^l)
-        ;;
-        *)  echo "Opcao invalida"
-        ;;
+    "a"|"-a")
+        echo -e "\nDIRETÓRIOS EM ${diretorio}\n"
+        resultado=$(ls -l "${diretorio}" | tr -s ' ' | grep -e ^d)
+
+        if [ "${resultado}" != "" ]; then
+            cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep ^d)
+            echo -e "\n----------\nFim da busca\n"
+        else
+            echo -e "0 diretórios\n"
+        fi
+    ;;
+    "b" | "-b")
+        echo -e "\nARQUIVOS EXECUTAVEIS EM ${diretorio}\n"
+        resultado=$(ls -l "${diretorio}" | tr -s ' ' | grep -e ^-[-rw]*x)
+
+        if [ "${resultado}" != "" ]; then
+            cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep -e ^-[-rw]*x)
+            echo -e "\n-----------\nFim da busca\n"
+        else
+            echo -e "0 arquivos executáveis\n"
+        fi
+    ;;
+
+    "c" | "-c")
+        echo -e "\nLINKS SIMBÓLICOS EM ${diretorio}\n"
+        resultado=$(ls -l "${diretorio}" | tr -s ' ' | grep -e ^l)
+
+        if [ "${resultado}" != "" ]; then
+            cut -d ' ' -f 9 <<< $(ls -l "${diretorio}" | tr -s ' ' | grep ^l)
+            echo -e "\n----------\nFim da busca\n"
+        else
+            echo -e "0 links simbólicos\n"
+        fi
+    ;;
+    
+    *)  echo "Opcao invalida"
+    ;;
+
 esac
+
 
 
 << questao
