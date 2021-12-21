@@ -1,0 +1,12 @@
+Ranking Meninos       Ranking Meninas
+
+1 Miguel do Santos             1 Sophia de Fulano
+2 Davi                         2 Alice Sem Maravilhas
+3 Arthur                       3 Julia Maria
+4 Pedro                        4 Isabella
+5 Gabriel                      5 Manuela
+6 Bernardo                     6 Laura
+7 Lucas                        7 Luiza
+8 Matheus Luz Solar            8 Valentina
+9 Rafael Francisco da Silva    9 Giovanna da Silva Sauro
+10 Heitor                      10 Maria Eduarda
