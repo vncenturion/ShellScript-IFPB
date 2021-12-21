@@ -2,6 +2,7 @@
 
 1. Considere o seguinte arquivo de entrada com a lista dos dez nomes mais comuns no Brasil para Meninos  e  Meninas. Pede-se  que  o  arquivo  seja  separado em dois,  um apenas para  meninos e outro para meninas.
 
+```
     Ranking Meninos       Ranking Meninas
 
     1 Miguel              1 Sophia
@@ -14,21 +15,26 @@
     8 Matheus Luz         8 Valentina
     9 Rafael              9 Giovanna
     10 Heitor             10 Maria Eduarda
+```
 
 2. Dado  um  arquivo  com  a lista de todos  os  downloads efetuados  pelos  usuários  no  último  mês,  deseja-se totalizar quanto cada usuário baixou. Segue o formato do arquivo:
 
+```
     Nelson www.google.com.br 250
     Arr445 www.testes.com/dbz.wmv 20050
     Nelson www.uol.com.br 300
     Vianna debian.org/9.7.0.iso 800555
+```
 
 3. Escreva um script que exiba um menu que, usando o sed:
 
+```
     r - Digite o nome de um arquivo que será processado.
     a - Remova todas as letras do arquivo.
     b - Remova todos os dígitos do arquivo.
     c - Substitua todos os caracteres que não são letras nem dígitos do arquivo por ~.
     q - Saia do script.
+```
 
 4. Escreva um script que remova todos os endereços IP de um arquivo de entrada, alterando o seu valor para `**!!CENSU--RADO!!**`.
 
