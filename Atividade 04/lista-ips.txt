@@ -1,0 +1,6 @@
+Lista de IPs
+    8.8.8.8 claro
+    8.8.4.4 Vivo
+    127.0.0.1 Cliente
+    123.123.123.1 Servidor Cliente
+    
