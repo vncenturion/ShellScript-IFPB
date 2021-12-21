@@ -1,4 +1,4 @@
-Ranking Meninos       Ranking Meninas
+Ranking Meninos                Ranking Meninas
 
 1 Miguel do Santos             1 Sophia de Fulano
 2 Davi                         2 Alice Sem Maravilhas
