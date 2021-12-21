@@ -1,18 +1,49 @@
 #!/bin/bash
 
 arquivo=$1
-numLinha=$(wc -l < ${arquivo})
+usuarios=( )
+nomes=$(cut -d ' ' -f 1 lista-downloads.txt | sort -u)
+numLinhas=$(wc -l < ${arquivo})
 soma=0
+index=0
 
-for (( linha=1; linha<=${numLinha}; linha++ )) do
+#gerar lista com usuarios
+for nome in ${nomes}; do
+    usuarios=( ${usuarios[*]} $nome )
+done
+echo  ${usuarios[*]}
 
+function buscaIndex {
+    
+    for (( i=0; i<${#usuarios[*]}; i++ )) do
+        if [ "$1" == "${usuarios[$i]}" ]; then
+            index=$i
+        fi 
+    done
+
+}
+
+for (( linha=1; linha<=${numLinhas}; linha++ )) do #joga valores de downloads para arquivo externo associado ao index do usuario no array
+
+    nome=$(sed -n ${linha}p < ${arquivo} | cut -d ' ' -f 1)
+    buscaIndex $nome
     valor=$(sed -n ${linha}p < ${arquivo} | cut -d ' ' -f 3)
-    echo -e "#$linha download = ${valor} bytes"
-    soma=$(($soma+$valor))
+    sed -n ${linha}p < ${arquivo} | cut -d ' ' -f 3 >> usuario${index}
+    echo -e "Donwload n #${linha} ; usuario: ${nome}:${index} ; tamanho = ${valor} bytes"
 
 done
 
-echo -e "Download total = ${soma} bytes"
+for (( i=0; i<${#usuarios[*]}; i++ )) do
+    
+    somatorio=$(cat usuario${i})
+    for valor in $somatorio; do
+        soma=$(($soma + $valor))
+    done
+    echo -e "Usuario: ${usuarios[$i]} ; Total: $soma bytes."
+    soma=0
+    rm usuario${i}
+
+done
 
 << questão
 
