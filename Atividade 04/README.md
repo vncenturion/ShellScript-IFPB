@@ -46,6 +46,7 @@
         12345678900 Alberto
         11111111111 Augusto
         83987654321 Almirante
+        
     A saída deve ser:
 
         (12) 3 4567-8900 Alberto
