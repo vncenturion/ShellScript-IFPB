@@ -2,7 +2,7 @@
 
 arquivo=$1
 usuarios=( )
-nomes=$(cut -d ' ' -f 1 lista-downloads.txt | sort -u)
+nomes=$(cut -d ' ' -f 1 ${arquivo} | sort -u)
 numLinhas=$(wc -l < ${arquivo})
 soma=0
 index=0
